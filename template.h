@@ -24,6 +24,8 @@
 #define EEPROM_WIFI_PASS_END 64
 #define EEPROM_WIFI_IP_START 65
 #define EEPROM_WIFI_IP_END 95
+#define EEPROM_WIFI_IP_SEND_START 96
+#define EEPROM_WIFI_IP_SEND_END 125
 
 
 #define SSID_PRE_AP_MODE "AvyInterior-"
@@ -57,7 +59,7 @@ void StartConfigServer();           //thiet lap sever
 void ConfigMode();                  //nhan data tu app
 void setLedApMode();                //hieu ung led
 String GetFullSSID();
-bool connectToWifi(String nssid, String npass, String ip);
+bool connectToWifi(String nssid, String npass, String ip, String ipsend);
 bool testWifi(String esid, String epass);
 void detachIP(String ip);
 void setupIP();
@@ -71,8 +73,10 @@ uint8_t green_before, green_after;
 uint8_t blue_before, blue_after;
 uint32_t Time = 0;
 
-String esid, epass, eip;
+String esid, epass, eip, eipSend;
 bool Flag_Normal_Mode = true;
+int templateAfter = 0;
+int templateBefor = 0;
 
 // unsigned long Pul_Motor;
 // unsigned long test_time, time_start_speed;

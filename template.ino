@@ -14,7 +14,10 @@ void handleRoot() {
 }
 
 void getStatus(){
-    server.send(200, "text/html", "{\"status\":\"success\"}");
+    String datasend = "{\"template\":\"";
+    datasend += templateAfter;
+    datasend += "\"}";
+    server.send(200, "text/html", datasend);
     ECHOLN("getstatus");
 }
 
